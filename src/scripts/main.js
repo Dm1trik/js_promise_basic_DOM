@@ -14,16 +14,30 @@ const promise2 = new Promise((resolve, reject) => {
   }, 3000);
 });
 
-promise1.then(() => {
-  document.body.insertAdjacentHTML(
-    'beforeend',
-    '<div class="message">Promise was resolved!</div>',
-  );
-});
+promise1
+  .then(() => {
+    document.body.insertAdjacentHTML(
+      'beforeend',
+      '<div class="message">Promise was resolved!</div>',
+    );
+  })
+  .catch(() => {
+    document.body.insertAdjacentHTML(
+      'beforeend',
+      '<div class="message error-message">Promise was rejected!</div>',
+    );
+  });
 
-promise2.catch(() => {
-  document.body.insertAdjacentHTML(
-    'beforeend',
-    '<div class="message error-message">Promise was rejected!</div>',
-  );
-});
+promise2
+  .then(() => {
+    document.body.insertAdjacentHTML(
+      'beforeend',
+      '<div class="message">Promise was resolved!</div>',
+    );
+  })
+  .catch(() => {
+    document.body.insertAdjacentHTML(
+      'beforeend',
+      '<div class="message error-message">Promise was rejected!</div>',
+    );
+  });
